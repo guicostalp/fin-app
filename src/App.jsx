@@ -30,16 +30,16 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/fin-app" element={<LandingPage onLogin={handleLogin} />} />
+        <Route path="/" element={<LandingPage onLogin={handleLogin} />} />
         <Route
           path="/main"
-          element={isAuthenticated ? <MainPage onLogout={handleLogout} /> : <Navigate to="/fin-app" />}
+          element={isAuthenticated ? <MainPage onLogout={handleLogout} /> : <Navigate to="/" />}
         />
         {/* Add additional routes here as needed */}
         {/* Example of a protected route */}
         <Route
           path="/protected"
-          element={isAuthenticated ? <div>Protected Content</div> : <Navigate to="/fin-app" />}
+          element={isAuthenticated ? <div>Protected Content</div> : <Navigate to="/" />}
         />
       </Routes>
     </div>
