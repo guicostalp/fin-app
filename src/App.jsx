@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate, Navigate, Router } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import LandingPage from '../pages/LandingPage';
 import MainPage from '../pages/MainPage';
@@ -28,7 +28,7 @@ function App() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <Router basename="/fin-app">
+
       <div>
         <Routes>
           <Route path="/" element={<LandingPage onLogin={handleLogin} />} />
@@ -44,7 +44,7 @@ function App() {
           />
         </Routes>
       </div>
-    </Router>
+
   );
 }
 
