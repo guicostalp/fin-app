@@ -1,8 +1,9 @@
 import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import LandingPage from '../pages/LandingPage';
-import MainPage from '../pages/MainPage';
+import LandingPage from './pages/LandingPage';
+import MainPage from './pages/MainPage';
 import './App.css';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
@@ -37,10 +38,10 @@ function App() {
             element={isAuthenticated ? <MainPage onLogout={handleLogout} /> : <Navigate to="/" />}
           />
           {/* Add additional routes here as needed */}
-          {/* Example of a protected route */}
+
           <Route
-            path="/protected"
-            element={isAuthenticated ? <div>Protected Content</div> : <Navigate to="/" />}
+            path="/dashboard"
+            element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />}
           />
         </Routes>
       </div>
