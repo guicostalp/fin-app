@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes
+import LoginForm from '../components/LoginForm';
 
 function LandingPage({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -14,22 +15,26 @@ function LandingPage({ onLogin }) {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Submit</button>
-    </div>
+    <>
+
+      <LoginForm />
+      <div>
+        <h1>Login</h1>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Submit</button>
+      </div>
+    </>
   );
 }
 

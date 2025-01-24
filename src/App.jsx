@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import MainPage from './pages/MainPage';
 import './App.css';
 import Dashboard from './pages/Dashboard';
+import LoginForm from './components/LoginForm';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
@@ -32,7 +33,8 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="/" element={<LandingPage onLogin={handleLogin} />} />
+          <Route path="/" element={<LoginForm setIsAuthenticated={setIsAuthenticated}/>} />
+          <Route path="/landing-page" element={<LandingPage onLogin={handleLogin} />} />
           <Route
             path="/main"
             element={isAuthenticated ? <MainPage onLogout={handleLogout} /> : <Navigate to="/" />}
