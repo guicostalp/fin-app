@@ -20,7 +20,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     setLoading(true); // Start loader
 
     try {
-      const response = await axios.post('http://34.116.110.214:8080/login', {
+      const response = await axios.post('https://34.116.110.214:8080/login', {
         username,
         password,
       });
