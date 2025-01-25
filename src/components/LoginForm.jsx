@@ -20,7 +20,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     setLoading(true); // Start loader
 
     try {
-      const response = await axios.post('https://34.116.110.214:8080/login', {
+      const response = await axios.post('https://my-python-project-446100.uc.r.appspot.com/login', {
         username,
         password,
       });
@@ -109,7 +109,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
               color="primary"
               fullWidth
             >
-              Login
+              Login2
             </Button>
           )}
         </Box>
