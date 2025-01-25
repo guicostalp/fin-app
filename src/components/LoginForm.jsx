@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types'; // Import PropTypes
 import axios from 'axios';
@@ -10,8 +10,25 @@ const LoginForm = ({ setIsAuthenticated }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [loading, setLoading] = useState(false); // Loading state
+  const [responseData, setResponseData] = useState(null);
 
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://my-python-project-446100.uc.r.appspot.com/hello');
+        setResponseData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setResponseData('Failed to fetch data');
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,8 +78,9 @@ const LoginForm = ({ setIsAuthenticated }) => {
         position: 'relative',
       }}
     >
+      <div>{responseData ? JSON.stringify(responseData) : 'Loading...'}</div>
       <Typography variant="h5" component="h2" gutterBottom>
-        Login
+        Login2
       </Typography>
       <form onSubmit={handleSubmit}>
         <Box mb={2}>
@@ -109,7 +127,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
               color="primary"
               fullWidth
             >
-              Login2
+              Login
             </Button>
           )}
         </Box>
