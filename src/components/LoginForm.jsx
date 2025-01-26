@@ -80,7 +80,7 @@ const LoginForm = ({ setIsAuthenticated }) => {
     >
       <div>{responseData ? JSON.stringify(responseData) : 'Loading...'}</div>
       <Typography variant="h5" component="h2" gutterBottom>
-        Login2
+        Login
       </Typography>
       <form onSubmit={handleSubmit}>
         <Box mb={2}>
